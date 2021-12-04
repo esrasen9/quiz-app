@@ -1,0 +1,12 @@
+.quiz-settings-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.error-message {
+    padding: 0 20px 10px;
+    color: red;
+    letter-spacing: 0.8px;
+}

@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import Settings from "../Settings";
+import QuizSettings from "../quiz/QuizSettings";
 class Home extends Component {
     render() {
         return (
             <div>
-                <Settings />
+                <QuizSettings />
             </div>
         );
     }
