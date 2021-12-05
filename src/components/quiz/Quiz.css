@@ -5,8 +5,45 @@
     margin: 0 auto;
 }
 
+.quiz-container{
+    width:100vw;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
 .error-message {
     padding: 0 20px 10px;
     color: red;
     letter-spacing: 0.8px;
 }
+
+.quiz-question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.quiz-question {
+    width: 600px;
+}
+
+.quiz-answer-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.option {
+    cursor: pointer;
+    padding: 20px;
+    width:  600px;
+    margin: 18px;
+    font-size: 20px;
+    border-radius: 4px;
+    border: 1px solid lightgrey;
+}
+

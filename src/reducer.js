@@ -4,7 +4,8 @@ export const initialState = {
     name: "",
     category: "",
     difficulty: "",
-    score: 0
+    score: 0,
+    questions: []
 }
 
 export const getQuestions = async (category,difficulty) => {
@@ -33,6 +34,11 @@ export const reducer = (state, action) => {
             return{
                 ...state,
                 score: action.payload
+            }
+        case "SET_QUESTIONS":
+            return {
+                ...state,
+                questions: [...action.payload]
             }
         default:
             return state;

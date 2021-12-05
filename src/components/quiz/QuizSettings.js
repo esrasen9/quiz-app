@@ -5,6 +5,7 @@ import categories from "../../data/Categories";
 import "./Quiz.css";
 import {useStateValue} from "../../context/Context";
 import {useHistory} from "react-router-dom";
+import Header from "../header/Header";
 const QuizSettings = () => {
     const [{name, category, difficulty}, action] = useStateValue();
     const [error,setError] = useState(false);
@@ -22,6 +23,7 @@ const QuizSettings = () => {
     }
     return (
         <div>
+            <Header/>
             <div className="quiz-settings-container">
                 <TextField
                     value={name}
