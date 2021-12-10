@@ -7,14 +7,13 @@ import {CircularProgress} from "@mui/material";
 import Question from "../quiz/Question";
 
 const Quiz = () => {
-    const [{category, difficulty,questions},action] = useStateValue();
-    const [options,setOptions] = useState([]);
-    const [currentQuestion,setCurrentQuestion] = useState(0);
-
+    const [{category, difficulty, questions, isLoaded}, action] = useStateValue();
+    const [options, setOptions] = useState([]);
+    const [current, setCurrent] = useState(0);
     const setMixedOptions = (answers) => {
         let len = answers.length;
-        let random,temp;
-        while (len){
+        let random, temp;
+        while (len) {
             random = Math.floor(Math.random() * len--) | 0;
             temp = answers[len];
             answers[len] = answers[random];
@@ -23,11 +22,11 @@ const Quiz = () => {
         setOptions(answers);
     };
 
-    useEffect(() =>{
+    useEffect(() => {
         let cancel = false;
-        getQuestions(category,difficulty)
-            .then(results =>{
-                if(cancel) return;
+        getQuestions(category, difficulty)
+            .then(results => {
+                if (cancel) return;
                 action({
                     type: "SET_QUESTIONS",
                     payload: results
@@ -37,13 +36,17 @@ const Quiz = () => {
         return () => {
             cancel = true;
         }
-    },[]);
+    }, []);
 
-    useEffect(()=>{
-        console.log(questions[currentQuestion]?.incorrect_answers);
-        /*setMixedOptions([questions[currentQuestion]?.correct_answer,...(questions[currentQuestion]?.incorrect_answers)]);
-         */
-    },[currentQuestion, questions])
+    useEffect(() => {
+        if (isLoaded) {
+            const currentQuestion = questions[current];
+            const correctAnswer = currentQuestion?.correct_answer;
+            const incorrectAnswers = currentQuestion?.incorrect_answers;
+            const answers = [correctAnswer, ...incorrectAnswers];
+            setMixedOptions([...answers]);
+        }
+    }, [current, isLoaded, questions])
 
     return (
         <div className="quiz-container">
@@ -51,9 +54,14 @@ const Quiz = () => {
                 <img className="ill-img" src={img} alt=""/>
             </Link>
             {
-                questions[currentQuestion] ? (
+                questions[current] ? (
                     <div className="quiz-question">
-                        <Question options={options} current={questions[currentQuestion]} setCurrentQuestion={setCurrentQuestion}/>
+                        <Question
+                            currentQuestion={questions[current].question}
+                            correct={questions[current]?.correct_answer}
+                            options={options}
+                            current={current}
+                            setCurrent={setCurrent}/>
                     </div>
                 ) : <CircularProgress color="inherit" size={100}/>
             }

@@ -6,21 +6,22 @@ import "./Quiz.css";
 import {useStateValue} from "../../context/Context";
 import {useHistory} from "react-router-dom";
 import Header from "../header/Header";
-const QuizSettings = () => {
-    const [{name, category, difficulty}, action] = useStateValue();
-    const [error,setError] = useState(false);
 
+const QuizSettings = () => {
     const history = useHistory();
+    const [{name, category, difficulty}, action] = useStateValue();
+    const [error, setError] = useState(false);
+
 
     const handleStartQuiz = () => {
-        if(!category || !difficulty || !name){
+        if (!category || !difficulty || !name) {
             setError(true);
-        }
-        else {
+        } else {
             setError(false);
             history.push("/quiz");
         }
     }
+
     return (
         <div>
             <Header/>
@@ -36,7 +37,7 @@ const QuizSettings = () => {
                     })}
                 />
                 {error && !name &&
-                        (<span className="error-message">
+                (<span className="error-message">
                             Name field is required!
                         </span>)}
                 <TextField
@@ -59,7 +60,7 @@ const QuizSettings = () => {
                     }
                 </TextField>
                 {error && !category &&
-                    (<span className="error-message">
+                (<span className="error-message">
                         Please select a category!
                     </span>)}
                 <TextField
@@ -79,7 +80,7 @@ const QuizSettings = () => {
                     <MenuItem key="hard" value="hard">Hard</MenuItem>
                 </TextField>
                 {error && !difficulty &&
-                    (<span className="error-message">
+                (<span className="error-message">
                         Please select a difficulty!
                     </span>)}
                 <Button

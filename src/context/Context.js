@@ -4,7 +4,7 @@ export const Context = createContext(null);
 
 export const Provider = ({children, reducer, initialState}) => {
     return (
-        <Context.Provider value={useReducer(reducer,initialState)}>
+        <Context.Provider value={useReducer(reducer, initialState)}>
             {children}
         </Context.Provider>
     )

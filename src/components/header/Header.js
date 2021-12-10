@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import "./Header.css";
 import img from "../../img/flat-people-asking-questions-illustration_23-2148910627.jpeg";
+
 const Header = () => {
     return (
         <div className="header">

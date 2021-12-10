@@ -1,16 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 .app {
-  min-height: 100vh;
-  font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    font-family: 'Outfit', sans-serif;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
+
 .ill-img {
-  width: 400px;
+    width: 400px;
 }
