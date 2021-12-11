@@ -23,10 +23,11 @@ const QuizSettings = () => {
     }
 
     return (
-        <div>
-            <Header/>
-            <div className="quiz-settings-container">
+        <div data-testid="quiz-settings">>
+            <Header />
+            <div data-testid="quiz-settings-container" className="quiz-settings-container">
                 <TextField
+                    data-testid="name-input"
                     value={name}
                     label="Enter Your Name"
                     variant="outlined"
@@ -41,6 +42,7 @@ const QuizSettings = () => {
                             Name field is required!
                         </span>)}
                 <TextField
+                    data-testid="category-input"
                     value={category}
                     select
                     label="Select Category"
@@ -64,6 +66,7 @@ const QuizSettings = () => {
                         Please select a category!
                     </span>)}
                 <TextField
+                    data-testid="difficulty-input"
                     value={difficulty}
                     select
                     label="Select difficulty"
@@ -73,11 +76,10 @@ const QuizSettings = () => {
                     onChange={(e) => action({
                         type: "SET_DIFFICULTY",
                         payload: e.target.value
-                    })}
-                >
-                    <MenuItem key="easy" value="easy">Easy</MenuItem>
-                    <MenuItem key="medium" value="medium">Medium</MenuItem>
-                    <MenuItem key="hard" value="hard">Hard</MenuItem>
+                    })}>
+                    <MenuItem data-testid="difficulty-input-easy" key="easy" value="easy">Easy</MenuItem>
+                    <MenuItem data-testid="difficulty-input-medium" key="medium" value="medium">Medium</MenuItem>
+                    <MenuItem data-testid="difficulty-input-hard" key="hard" value="hard">Hard</MenuItem>
                 </TextField>
                 {error && !difficulty &&
                 (<span className="error-message">

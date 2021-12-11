@@ -5,7 +5,7 @@ import img from "../../img/flat-people-asking-questions-illustration_23-21489106
 
 const Header = () => {
     return (
-        <div className="header">
+        <div data-testid="quiz-header" className="header">
             <Link to="/">
                 <img className="ill-img" src={img} alt=""/>
             </Link>

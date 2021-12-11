@@ -49,13 +49,13 @@ const Quiz = () => {
     }, [current, isLoaded, questions])
 
     return (
-        <div className="quiz-container">
-            <Link to="/">
+        <div data-testid="quiz-page" className="quiz-container">
+            <Link data-testid="go-home-link" to="/">
                 <img className="ill-img" src={img} alt=""/>
             </Link>
             {
                 questions[current] ? (
-                    <div className="quiz-question">
+                    <div data-testid="quiz-question" className="quiz-question">
                         <Question
                             currentQuestion={questions[current].question}
                             correct={questions[current]?.correct_answer}
@@ -63,7 +63,7 @@ const Quiz = () => {
                             current={current}
                             setCurrent={setCurrent}/>
                     </div>
-                ) : <CircularProgress color="inherit" size={100}/>
+                ) : <CircularProgress data-testid="quiz-loading-progress" color="inherit" size={100}/>
             }
         </div>
     );
