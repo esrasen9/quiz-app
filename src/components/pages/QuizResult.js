@@ -16,7 +16,7 @@ const QuizResult = () => {
                 <div className="result-data">
                     <h1>Name: <span>{name}</span></h1>
                     <h1>Category: <span>{categories.find(c => c.value = category).category}</span></h1>
-                    <h1>Difficulty: <span>{difficulty}</span></h1>
+                    <h1>Difficulty: <span>{difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}</span></h1>
                     <h1> Final Score: <span>{score}</span></h1>
                 </div>
                 <Button variant="outlined" onClick={() => history.push("/")}>Go To Homepage</Button>

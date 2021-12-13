@@ -23,8 +23,8 @@ const QuizSettings = () => {
     }
 
     return (
-        <div data-testid="quiz-settings">>
-            <Header />
+        <div data-testid="quiz-settings">
+            <Header/>
             <div data-testid="quiz-settings-container" className="quiz-settings-container">
                 <TextField
                     data-testid="name-input"
